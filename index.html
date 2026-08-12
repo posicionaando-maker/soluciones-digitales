@@ -20,60 +20,43 @@
             padding: 0 0 2rem 0;
         }
 
-        /* ===== BANNER PRINCIPAL ===== */
+        /* ===== BANNER PRINCIPAL - AHORA STICKY ===== */
         .banner {
             background: linear-gradient(145deg, #0b2b4a 0%, #1a4b6d 100%);
-            padding: 3rem 1.5rem 2.5rem;
+            padding: 1.5rem 1rem 1.2rem;
             text-align: center;
-            border-radius: 0 0 3rem 3rem;
-            box-shadow: 0 8px 20px rgba(10, 30, 50, 0.25);
-            position: relative;
-            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(10, 30, 50, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            width: 100%;
+            transition: padding 0.2s ease;
         }
 
-        .banner::after {
-            content: '';
-            position: absolute;
-            top: -30%;
-            right: -10%;
-            width: 200px;
-            height: 200px;
-            background: rgba(255, 183, 77, 0.08);
-            border-radius: 50%;
-            pointer-events: none;
+        /* Cuando el banner está fijo, reducimos un poco el padding para que ocupe menos espacio */
+        .banner.sticky-compact {
+            padding: 0.8rem 1rem 0.7rem;
         }
 
         .banner h1 {
-            font-size: 2.8rem;
+            font-size: 2rem;
             font-weight: 800;
             color: #ffffff;
             letter-spacing: -0.02em;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-            position: relative;
-            z-index: 1;
         }
 
         .banner .destacado {
             display: block;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             font-weight: 300;
             color: #ffb74d;
-            margin-top: 0.2rem;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.3px;
             text-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
         }
 
         .banner .lema {
-            display: block;
-            font-size: 1.1rem;
-            font-weight: 400;
-            color: #b3d9f7;
-            margin-top: 0.5rem;
-            background: rgba(0, 0, 0, 0.15);
-            padding: 0.3rem 1rem;
-            border-radius: 30px;
-            display: inline-block;
-            backdrop-filter: blur(2px);
+            display: none; /* Lo ocultamos para no saturar el banner fijo */
         }
 
         /* ===== SECCIÓN BENEFICIOS ===== */
@@ -81,18 +64,18 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 1.2rem;
-            padding: 2rem 1rem;
+            gap: 1rem;
+            padding: 1.5rem 1rem 1rem;
             max-width: 1100px;
             margin: 0 auto;
         }
 
         .beneficio-card {
             background: white;
-            padding: 1.2rem 1rem;
+            padding: 1rem 0.8rem;
             border-radius: 1.2rem;
-            flex: 1 1 150px;
-            max-width: 200px;
+            flex: 1 1 130px;
+            max-width: 180px;
             text-align: center;
             box-shadow: 0 4px 12px rgba(0, 20, 40, 0.06);
             border: 1px solid rgba(26, 75, 109, 0.08);
@@ -104,48 +87,47 @@
         }
 
         .beneficio-icono {
-            font-size: 2.2rem;
+            font-size: 2rem;
             line-height: 1;
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.2rem;
             display: block;
         }
 
         .beneficio-card h3 {
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 600;
             color: #0b2b4a;
-            margin-bottom: 0.15rem;
+            margin-bottom: 0.1rem;
         }
 
         .beneficio-card p {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: #3a4e6b;
             line-height: 1.3;
         }
 
         /* ===== SECCIÓN PROTOTIPOS ===== */
         .seccion-prototipos {
-            padding: 1rem 1rem 1.5rem;
+            padding: 0.5rem 1rem 1.5rem;
             max-width: 1100px;
             margin: 0 auto;
         }
 
         .seccion-prototipos h2 {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 700;
             color: #0b2b4a;
             text-align: center;
-            margin-bottom: 1.8rem;
+            margin-bottom: 1.2rem;
             letter-spacing: -0.3px;
         }
 
         .grid-prototipos {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 1.5rem;
+            gap: 1.2rem;
         }
 
-        /* Tablets y pantallas pequeñas */
         @media (min-width: 600px) {
             .grid-prototipos {
                 grid-template-columns: repeat(2, 1fr);
@@ -161,7 +143,7 @@
         .prototipo-card {
             background: white;
             border-radius: 1.5rem;
-            padding: 1.8rem 1.2rem 1.5rem;
+            padding: 1.5rem 1.2rem 1.3rem;
             box-shadow: 0 6px 18px rgba(0, 20, 40, 0.06);
             border: 1px solid #e9f0f9;
             display: flex;
@@ -174,23 +156,23 @@
         }
 
         .prototipo-card h3 {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 700;
             color: #0b2b4a;
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.2rem;
         }
 
         .prototipo-card .badge {
             display: inline-block;
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.3px;
             background: #e2edfb;
             color: #1a4b6d;
-            padding: 0.15rem 0.7rem;
+            padding: 0.1rem 0.7rem;
             border-radius: 30px;
-            margin-bottom: 0.6rem;
+            margin-bottom: 0.5rem;
             align-self: flex-start;
         }
 
@@ -199,14 +181,19 @@
             color: #9c4a0e;
         }
 
+        .prototipo-card .badge.catalogo {
+            background: #e0f2fe;
+            color: #0369a1;
+        }
+
         .prototipo-card p {
             color: #2c405a;
-            font-size: 0.95rem;
-            margin-bottom: 1.2rem;
+            font-size: 0.9rem;
+            margin-bottom: 0.8rem;
             flex-grow: 1;
         }
 
-        .prototipo-card .nota-offline {
+        .prototipo-card .nota-destacada {
             font-size: 0.8rem;
             background: #f0f7ff;
             padding: 0.4rem 0.8rem;
@@ -215,6 +202,13 @@
             display: inline-block;
             margin-bottom: 1rem;
             border-left: 3px solid #ff9800;
+            line-height: 1.3;
+        }
+
+        .prototipo-card .nota-destacada.whatsapp {
+            border-left-color: #25D366;
+            background: #f0faf4;
+            color: #1a7a3a;
         }
 
         .btn-prototype {
@@ -225,7 +219,7 @@
             padding: 0.6rem 1.2rem;
             border-radius: 60px;
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             text-decoration: none;
             transition: background 0.2s, transform 0.1s;
             border: none;
@@ -240,10 +234,6 @@
 
         .btn-prototype:active {
             transform: scale(0.96);
-        }
-
-        .btn-prototype i {
-            margin-right: 6px;
         }
 
         /* ===== PIE DE PÁGINA / CONTACTO ===== */
@@ -292,45 +282,62 @@
             padding-top: 1rem;
         }
 
-        /* ===== UTILITIES ===== */
-        .text-center {
-            text-align: center;
-        }
-
-        .mt-1 {
-            margin-top: 0.8rem;
-        }
-
-        /* ===== RESPONSIVE FINO ===== */
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 480px) {
             .banner h1 {
-                font-size: 2.2rem;
+                font-size: 1.6rem;
             }
             .banner .destacado {
-                font-size: 1.2rem;
+                font-size: 1rem;
             }
-            .banner .lema {
-                font-size: 0.95rem;
+            .banner {
+                padding: 1rem 0.8rem 0.8rem;
+            }
+            .banner.sticky-compact {
+                padding: 0.5rem 0.8rem 0.5rem;
+            }
+            .banner.sticky-compact h1 {
+                font-size: 1.3rem;
+            }
+            .banner.sticky-compact .destacado {
+                font-size: 0.85rem;
             }
             .beneficio-card {
-                flex: 1 1 120px;
-                padding: 0.9rem 0.5rem;
+                flex: 1 1 100px;
+                padding: 0.7rem 0.4rem;
+            }
+            .beneficio-card h3 {
+                font-size: 0.8rem;
+            }
+            .beneficio-card p {
+                font-size: 0.7rem;
             }
             .prototipo-card {
-                padding: 1.2rem 1rem;
+                padding: 1rem 0.9rem;
+            }
+            .seccion-prototipos h2 {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (min-width: 481px) and (max-width: 768px) {
+            .banner h1 {
+                font-size: 1.8rem;
+            }
+            .banner .destacado {
+                font-size: 1.1rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- ===== BANNER ===== -->
-    <header class="banner">
+    <!-- ===== BANNER STICKY ===== -->
+    <header class="banner" id="banner">
         <h1>
             Soluciones Digitales
             <span class="destacado">para hacer crecer su negocio</span>
         </h1>
-        <span class="lema">⚡ Prototipos listos para usar</span>
     </header>
 
     <!-- ===== BENEFICIOS ===== -->
@@ -362,19 +369,20 @@
                 <h3>📦 IPV Offline</h3>
                 <span class="badge offline">⚡ 100% offline</span>
                 <p>Control de ventas, inventario y reportes diarios, semanales y mensuales. Diseñado para funcionar sin internet, ideal para Cuba.</p>
-                <span class="nota-offline">⚠️ El prototipo real es puramente offline</span>
+                <span class="nota-destacada">⚠️ El prototipo real es puramente offline</span>
                 <a href="https://posicionaando-maker.github.io/migaraje/" class="btn-prototype" target="_blank" rel="noopener noreferrer">
                     🔗 Ver prototipo
                 </a>
             </div>
 
-            <!-- 2. CATÁLOGO ONLINE -->
+            <!-- 2. CATÁLOGO ONLINE (CORREGIDO) -->
             <div class="prototipo-card">
                 <h3>🛒 Catálogo Online</h3>
-                <span class="badge">🌐 Con conexión</span>
-                <p>Comparte tu inventario por internet y alcanza más usuarios. Sincroniza con el IPV offline para tener todo actualizado.</p>
+                <span class="badge catalogo">🌐 Catálogo web</span>
+                <p>Muestra tu inventario en una web para alcanzar más clientes. <strong>No es una tienda con pasarela de pago</strong>, los pedidos se gestionan por WhatsApp.</p>
+                <span class="nota-destacada whatsapp">💬 Los clientes piden detalles por WhatsApp</span>
                 <a href="https://posicionaando-maker.github.io/migaraje/" class="btn-prototype" target="_blank" rel="noopener noreferrer">
-                    🔗 Ver prototipo
+                    🔗 Ver catálogo
                 </a>
             </div>
 
@@ -389,7 +397,7 @@
             </div>
 
         </div>
-        <p style="text-align:center; margin-top:1.8rem; color:#3a5a7a; font-size:0.9rem; background:#e9f0f9; padding:0.5rem 1rem; border-radius:60px; max-width:500px; margin-left:auto; margin-right:auto;">
+        <p style="text-align:center; margin-top:1.5rem; color:#3a5a7a; font-size:0.85rem; background:#e9f0f9; padding:0.4rem 1rem; border-radius:60px; max-width:500px; margin-left:auto; margin-right:auto;">
             💡 Cada prototipo es independiente y puede adaptarse a tu negocio.
         </p>
     </section>
@@ -411,15 +419,40 @@
         </div>
     </footer>
 
-    <!-- ===== (OPCIONAL) UN PEQUEÑO JS PARA MOSTRAR AÑO DINÁMICO ===== -->
+    <!-- ===== JAVASCRIPT PARA BANNER COMPACTO AL HACER SCROLL ===== -->
     <script>
-        // Solo para mantener el año actualizado en el footer (opcional)
         document.addEventListener('DOMContentLoaded', function() {
-            const copy = document.querySelector('.footer .copy');
-            if (copy) {
-                const year = new Date().getFullYear();
-                copy.innerHTML = `&copy; ${year} · Prototipos para crecer tu negocio`;
+            const banner = document.getElementById('banner');
+            let lastScrollY = window.scrollY;
+
+            // Función para añadir/quitar clase según el scroll
+            function handleScroll() {
+                const currentScrollY = window.scrollY;
+                
+                // Si el scroll es mayor a 60px, añadimos clase para hacerlo más compacto
+                if (currentScrollY > 60) {
+                    banner.classList.add('sticky-compact');
+                } else {
+                    banner.classList.remove('sticky-compact');
+                }
+                
+                lastScrollY = currentScrollY;
             }
+
+            // Escuchamos el evento scroll con throttling para mejor rendimiento
+            let ticking = false;
+            window.addEventListener('scroll', function() {
+                if (!ticking) {
+                    window.requestAnimationFrame(function() {
+                        handleScroll();
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            });
+
+            // Ejecutamos al inicio para verificar si ya hay scroll
+            handleScroll();
         });
     </script>
 
